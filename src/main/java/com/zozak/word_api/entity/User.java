@@ -3,6 +3,7 @@ package com.zozak.word_api.entity;
 import com.zozak.word_api.enums.PlanType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,6 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class User  implements UserDetails {
@@ -42,7 +44,6 @@ public class User  implements UserDetails {
         createdAt = new Date();
         plan = PlanType.FREE;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

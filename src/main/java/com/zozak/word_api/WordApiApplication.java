@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan(basePackages = {"com.zozak.word_api"})
+@ComponentScan(basePackages = {"com.zozak"})
 @EnableJpaRepositories(basePackages = {"com.zozak.word_api"})
 public class WordApiApplication {
 
