@@ -2,6 +2,7 @@ package com.zozak.word_api.controller;
 
 import com.zozak.word_api.dto.AuthRequest;
 import com.zozak.word_api.dto.AuthResponse;
+import com.zozak.word_api.dto.RefreshTokenRequest;
 import com.zozak.word_api.service.AuthenticationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ class AuthController {
     public RootEntity<AuthResponse> login(@Valid @RequestBody AuthRequest request) {
         AuthResponse resp = authenticationService.login(request);
 
+        return RootEntity.ok(resp);
+    }
+
+    @PostMapping("/refresh")
+    public RootEntity<AuthResponse> refresh(@Valid @RequestBody RefreshTokenRequest request) {
+        AuthResponse resp = authenticationService.refreshToken(request);
         return RootEntity.ok(resp);
     }
 

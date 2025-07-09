@@ -1,15 +1,15 @@
 package com.zozak.word_api.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.Cascade;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "refresh_tokens")
+@Data
 public class RefreshToken extends BaseEntity{
 
     @Column(nullable = false, unique = true, name = "token")
@@ -19,6 +19,7 @@ public class RefreshToken extends BaseEntity{
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date expiresAt;
 
-    @OneToOne()
+    @ManyToOne()
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 }

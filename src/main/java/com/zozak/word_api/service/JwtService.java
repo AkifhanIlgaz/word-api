@@ -18,9 +18,9 @@ public class JwtService {
     @Value("${application.security.jwt.secret-key}")
     private String secretKey;
     @Value("${application.security.jwt.accessToken.expiration}")
-    private long accessTokenExpiration;
+    public long accessTokenExpiration;
     @Value("${application.security.jwt.refreshToken.expiration}")
-    private long refreshTokenExpiration;
+    public long refreshTokenExpiration;
 
     public String generateToken(UserDetails userDetails, TokenType tokenType) {
         return switch (tokenType) {

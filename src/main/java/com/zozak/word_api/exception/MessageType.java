@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum MessageType {
     USER_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "User not found"),
+    REFRESH_TOKEN_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "Refresh token not found"),
     INVALID_CREDENTIALS(HttpStatus.UNAUTHORIZED.value(), "Invalid credentials"),
     INVALID_API_KEY(HttpStatus.BAD_REQUEST.value(), "Invalid api key"),
     INVALID_REFRESH_TOKEN(HttpStatus.BAD_REQUEST.value(),"Invalid refresh token"),
