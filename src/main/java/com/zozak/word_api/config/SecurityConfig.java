@@ -30,7 +30,7 @@ class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.
-                        requestMatchers("/api/auth/**").permitAll()
+                        requestMatchers("/api/auth/**", "api/word/**").permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
