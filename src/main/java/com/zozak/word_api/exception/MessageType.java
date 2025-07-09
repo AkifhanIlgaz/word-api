@@ -14,6 +14,7 @@ public enum MessageType {
     INVALID_TOKEN(HttpStatus.BAD_REQUEST.value(),"Invalid token"),
     EXPIRED_TOKEN(HttpStatus.UNAUTHORIZED.value(),"Expired token"),
     INVALID_PLAN(HttpStatus.BAD_REQUEST.value(),"Invalid plan"),
+    INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Something went wrong"),
     INVALID_USAGE(HttpStatus.BAD_REQUEST.value(),"Invalid usage");
 
     private final Integer status;
